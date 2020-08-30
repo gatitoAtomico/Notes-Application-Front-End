@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+.login-form {
+background-color: #c7d5c8;
+width: 100%;
+max-width: 430px;
+max-height: 430px;
+padding: 100px;
+margin: auto;
+height: 100%;
+border-left: 10px solid #f8f4e9;
+border-right: 10px solid #534e48;
+background-image: -webkit-linear-gradient(left, #f8f4e9 50%, #534e48 50%), -webkit-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
+background-image: -moz-linear-gradient(left, #f8f4e9 50%, #534e48 50%), -moz-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
+background-image: -o-linear-gradient(left, #f8f4e9 50%, #534e48 50%), -o-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
+background-image: linear-gradient(to right, #f8f4e9 50%, #534e48 50%), linear-gradient(to right, #f8f4e9 50%, #534e48 50%);
+background-position: 0 0, 0 100% ;
+background-repeat: no-repeat;
+background-size: 100% 10px;
+    /* The image used */
+    background-image: url(/images/cat.jpg);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.login-form, 
+h2,label {
+    color: white;
+    font-size: large;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-form{
+    margin-left: 260px;
+    padding: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
