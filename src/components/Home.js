@@ -18,7 +18,7 @@ class Home extends Component {
             <div className= "col-md-6">
               <div className="card">
                   <div className = "card-header">
-                      Create Posts
+                      kostas
                   </div>
                 <div className="card-body">
                   hello
