@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button, Form, FormGroup, Label, Input, Container} from 'reactstrap'; 
 
 
 class Register extends Component {
@@ -7,7 +8,6 @@ class Register extends Component {
     state = {}
 
     handleSubmit = e => {
-       
         e.preventDefault();
 
         const data = {
@@ -42,31 +42,25 @@ class Register extends Component {
         }
 
       return (
-       <form onSubmit={this.handleSubmit}>
+        <Form className = "loginRegister-form" onSubmit={this.handleSubmit}>
            {error}
-           <h3>Register</h3>
+           <h2>Register</h2>
                 <div class="container">
                     <div class="form-row">
                     <div className="form-group col-md-12">
                         <label>Name</label>
-                        <input type="text" class="form-control"  placeholder="Name"
-                        onChange = {e => this.name = e.target.value} required/>
+                        <Input type="text" placeholder="PLease enter your Name" onChange = {e => this.name = e.target.value} required></Input>
                         <label>Email</label>
-                        <input type="email" class="form-control" placeholder="Email"
-                        onChange = {e => this.email = e.target.value} required/>
-                    
+                        <Input type="email" placeholder="PLease enter your Email" onChange = {e => this.email = e.target.value} required></Input>
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password"
-                        onChange = {e => this.password = e.target.value} required/>
+                        <Input type="password" placeholder="PLease enter your password"  onChange = {e => this.password = e.target.value} required></Input>
                         <label>Confirm Password</label>
-                        <input type="password" class="form-control" placeholder="Confirm Password"
-                        onChange = {e => this.confirmPassword = e.target.value} required/>             
+                        <Input type="password" placeholder="PLease confirm Password"  onChange = {e => this.confirmPassword = e.target.value} required></Input>           
                 </div>
             </div>
-              <button class="btn btn-primary btn-block">Register</button>
+            <Button className="btn-lg btn-dark btn-block">Register</Button>
             </div>
-          
-      </form>
+          </Form>
 
       );
     }

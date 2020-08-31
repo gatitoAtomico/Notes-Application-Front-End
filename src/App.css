@@ -1,8 +1,8 @@
-.login-form {
+.loginRegister-form {
 background-color: #c7d5c8;
 width: 100%;
 max-width: 430px;
-max-height: 430px;
+max-height: 500px;
 padding: 100px;
 margin: auto;
 height: 100%;
@@ -28,14 +28,14 @@ background-size: 100% 10px;
 }
 
 
-.login-form, 
+.loginRegister-form, 
 h2,label {
     color: white;
     font-size: large;
 }
 
 .home-form{
-    margin-left: 260px;
+   
     padding: 15px;
 }
 

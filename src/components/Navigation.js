@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Dropdown } from "react-bootstrap";
 
 class Navigation extends Component {
 
@@ -13,12 +14,23 @@ class Navigation extends Component {
 
         //why let?
         let buttons;
+        
         if (this.props.User) {
-            buttons = ( <ul className="navbar-nav">
-            <li className="nav-item">
-                <Link className="nav-link" to={'/'} onClick = {this.handleLogout}>Logout</Link>
-            </li>
-        </ul>
+
+
+
+          //{this.props.User.name}
+            buttons = ( 
+  
+             <Dropdown>
+              <Dropdown.Toggle variant="secondary">
+              Log in as : {this.props.User.name}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+              <Dropdown.Item  to={'/'} onClick = {this.handleLogout}>Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown> 
+
           );
 
         } else {

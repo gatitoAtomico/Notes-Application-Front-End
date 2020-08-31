@@ -10,18 +10,15 @@ class Home extends Component {
     render() {
   
       if(this.props.User){
-        //console.log('those are the porps',this.props.user);
       return (
-    
         <div>
-        <Sidebar/>
         <Container fluid>
         <div className= "home-form">
           <div className ="row">
             <div className= "col-md-6">
               <div className="card">
                   <div className = "card-header">
-                      Header
+                      Create Posts
                   </div>
                 <div className="card-body">
                   hello
@@ -31,7 +28,7 @@ class Home extends Component {
               <div className= "col-md-6">
               <div className="card">
                   <div className = "card-header">
-                     Header
+                     Post History
                   </div>
                 <div className="card-body">
                   hello

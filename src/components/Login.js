@@ -65,7 +65,7 @@ class Login extends Component {
       return (
 
         <Container>
-               <Form className = "login-form" onSubmit={this.handleSubmit}>
+               <Form className = "loginRegister-form" onSubmit={this.handleSubmit}>
                {error}
                <h2>Login</h2>
                     <FormGroup>
