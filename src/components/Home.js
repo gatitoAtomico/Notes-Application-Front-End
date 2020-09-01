@@ -90,7 +90,7 @@ class Home extends Component {
               </div>
               <div className= "col-md-6">
               <div className="card">
-              <div class="card bg-secondary text-white">
+              <div class="card bg-light text-black">
                   <div className = "card-header">
                      Recent tweets
                   </div>
