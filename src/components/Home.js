@@ -9,7 +9,8 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'body' : ''
+  
+      'posts' : []
     };
 
      this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,28 +24,46 @@ class Home extends Component {
         post : this.post,   
       }
 
-    
-      console.log('this is probably my post ',data)
-
-
-      axios.post('addPost', data).then (
+      axios.post('createPost', data).then (
 
         res => {
 
-        
+          console.log(res.data.post.body)
+
+          this.setState({
+
+            posts: [...this.state.posts, res.data.post]
+           
+          });
+
              }).catch(
                 err => {
                    this.setState({ message: err.response.data.message })
                 }
             )
 
+            //clear post body
+            e.target.reset();
     }
-
-   
 
     render() {
   
       if(this.props.User){
+
+        let error = '';
+
+        if(this.state.message){
+
+            error = (
+                <div className="alert alert-danger" role="alert">
+                     {this.state.message}
+                </div>
+            )
+        }
+
+
+
+
       return (
         <div>
         <Container fluid>
@@ -52,26 +71,33 @@ class Home extends Component {
           <div className ="row">
             <div className= "col-md-6">
               <div className="card">
+              <div class="card bg-dark text-white">
                   <div className = "card-header">
                       Tweet something...
                   </div>
-                <div className="card-body">
-                  <Form onSubmit= {this.handleSubmit}>
-                    <div className="form-group">
-                      <textarea onChange = {e => this.post = e.target.value} className="form-control" rows="5" maxLength="140" placeholder="WHATS UP" required/>
-                      </div>
-                      <Button className="btn-lg btn-info btn-block">Submit</Button>
-                  </Form>
+                  {error}
+                    <div className="card-body">
+                      <Form onSubmit= {this.handleSubmit}>
+                        <div className="form-group">
+                          <textarea onChange = {e => this.post = e.target.value} className="form-control" rows="5" 
+                        maxLength="140" placeholder="Whats up?" required/>
+                          </div>
+                          <Button className="btn-lg btn-info btn-block">Submit</Button>
+                      </Form>
+                    </div>
                 </div>
               </div>
               </div>
               <div className= "col-md-6">
               <div className="card">
+              <div class="card bg-secondary text-white">
                   <div className = "card-header">
-                     Post History
+                     Recent tweets
                   </div>
                 <div className="card-body">
-                  hello
+
+                {this.state.posts.map(post => <div key={post.id}>{post.body}</div>)}
+                </div>
                 </div>
               </div>
               </div>

@@ -42,22 +42,21 @@ class Navigation extends Component {
             </li>
         </ul>
           );
-       
     }
 
       return (
         <div>
-            <nav class="navbar fixed-top navbar-expand navbar">
-                    <a href="#" class="navbar-brand">Brand</a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className ="navbar fixed-top navbar-expand navbar">
+                    <a href="#" className ="navbar-brand">Brand</a>
+                    <button type="button" className ="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span className ="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav">
+                    <div className ="collapse navbar-collapse" id="navbarCollapse">
+                        <div className="navbar-nav">
                         <Link className="nav-link" to={'/'}>Home <span className="sr-only">(current)</span></Link>
                         </div>
-                        <div class="navbar-nav ml-auto">
+                        <div className ="navbar-nav ml-auto">
                         {buttons}
                         </div>
                     </div>
