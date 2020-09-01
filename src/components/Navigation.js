@@ -17,8 +17,6 @@ class Navigation extends Component {
         
         if (this.props.User) {
 
-
-
           //{this.props.User.name}
             buttons = ( 
   

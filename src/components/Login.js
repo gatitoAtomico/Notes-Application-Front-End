@@ -24,7 +24,6 @@ class Login extends Component {
          
         }
 
-
         axios.post('login', data).then (
 
         res => {
