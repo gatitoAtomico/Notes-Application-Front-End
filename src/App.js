@@ -4,11 +4,12 @@ import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
 import Register from './components/Register';
-import React, {Component} from 'react';
+import React, {Component, Profiler} from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Switch from 'react-bootstrap/esm/Switch';
 import axios from 'axios';
 import Forgot from './components/Forgot';
+import Profile from './components/Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css'
 import Sidebar from './components/SideBar';
@@ -60,6 +61,7 @@ import Sidebar from './components/SideBar';
                <Route  path="/login" component = { () => <Login setUser = {this.setUser} />} />
                <Route  path="/register" component = {Register} />
                <Route  path="/forgot" component = {Forgot} />
+               <Route  path="/profile" component = { () => <Profile User = {this.state.User} />} />
                <Route exact path="/" component= { () => <Home User = {this.state.User} />} />
              </Switch>
 

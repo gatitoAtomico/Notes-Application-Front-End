@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Button, Form, FormGroup, Label, Input, Container, Col, TextArea} from 'reactstrap'; 
+import {Button, Form, FormGroup, Label, Input, Container, Col, TextArea} from 'reactstrap';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import Sidebar from './SideBar';
 
@@ -98,7 +99,7 @@ class Home extends Component {
                 </div>
                 <div className="media-body">
                   <div className="user">
-                      <a href='#'><b>{post.user.name}</b></a>
+                      <Link to= {'/profile'}><b>{post.user.name}</b></Link>
                     </div>
                     <p>{post.body}</p>
                 </div>

@@ -19,13 +19,14 @@ class Navigation extends Component {
 
           //{this.props.User.name}
             buttons = ( 
-  
+                   
              <Dropdown>
               <Dropdown.Toggle variant="secondary">
               Log in as : {this.props.User.name}
               </Dropdown.Toggle>
-              <Dropdown.Menu>
-              <Dropdown.Item  to={'/'} onClick = {this.handleLogout}>Logout</Dropdown.Item>
+                <Dropdown.Menu>
+                <Dropdown.Item > <Link to={'/profile'}>Profile</Link></Dropdown.Item>
+                <Dropdown.Item onClick = {this.handleLogout}><Link to={'/'}>Logout</Link></Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown> 
 
