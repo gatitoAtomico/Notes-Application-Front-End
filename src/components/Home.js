@@ -9,7 +9,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-  
+      'message' : '',
       'posts' : []
     };
 
@@ -28,7 +28,7 @@ class Home extends Component {
 
         res => {
 
-          console.log(res.data.post.body)
+          console.log(res);
 
           this.setState({
 
@@ -61,9 +61,6 @@ class Home extends Component {
             )
         }
 
-
-
-
       return (
         <div>
         <Container fluid>
@@ -71,7 +68,7 @@ class Home extends Component {
           <div className ="row">
             <div className= "col-md-6">
               <div className="card">
-              <div class="card bg-dark text-white">
+              <div className="card bg-dark text-white">
                   <div className = "card-header">
                       Tweet something...
                   </div>
@@ -90,13 +87,22 @@ class Home extends Component {
               </div>
               <div className= "col-md-6">
               <div className="card">
-              <div class="card bg-light text-black">
+              <div className="card bg-light text-black">
                   <div className = "card-header">
                      Recent tweets
                   </div>
                 <div className="card-body">
-
-                {this.state.posts.map(post => <div key={post.id}>{post.body}</div>)}
+                {this.state.posts.map(post => <div key={post.id} className="media">
+                <div className="media-left">
+                <img src={post.user.avatar} className="media-object mr-2"/>
+                </div>
+                <div className="media-body">
+                  <div className="user">
+                      <a href='#'><b>{post.user.name}</b></a>
+                    </div>
+                    <p>{post.body}</p>
+                </div>
+                </div>)}
                 </div>
                 </div>
               </div>
