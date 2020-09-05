@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Input, Container, Col, TextArea} from 'reactstrap';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import Sidebar from './SideBar';
-
 
 class Home extends Component {
 
@@ -23,19 +21,28 @@ class Home extends Component {
 
       const data = {
         post : this.post,   
+        id : this.props.User.id
       }
 
       axios.post('createPost', data).then (
 
         res => {
 
-          console.log(res);
+
+          //console.log(this.props.setPosts('frixos'));
+
+
+             //this must be edited
+           // this.props.updatePosts('frixos');
 
           this.setState({
 
             posts: [...this.state.posts, res.data.post]
-           
+
           });
+
+
+          console.log('after props');
 
              }).catch(
                 err => {
@@ -71,7 +78,7 @@ class Home extends Component {
               <div className="card">
               <div className="card bg-dark text-white">
                   <div className = "card-header">
-                      Tweet something...
+                      Post Something...
                   </div>
                   {error}
                     <div className="card-body">
@@ -90,7 +97,7 @@ class Home extends Component {
               <div className="card">
               <div className="card bg-light text-black">
                   <div className = "card-header">
-                     Recent tweets
+                     Recent posts
                   </div>
                 <div className="card-body">
                 {this.state.posts.map(post => <div key={post.id} className="media">

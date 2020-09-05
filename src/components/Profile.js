@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Input, Container, Col, TextArea} from 'reactstrap';
+import axios from 'axios';
 
 class Profile extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-          'message' : '',
-        };
-    
-      console.log(this.props.User);
+        
+        };    
+
+
+
+        //console.log(this.props.Posts);
+        console.log(this.props);
+
       }
+
+     //runs before render method runs 
 
     render() {
 
+
         if(this.props.User){
+
+      
 
             let error = '';
     
@@ -31,10 +41,25 @@ class Profile extends Component {
             return (
                 <div>
                 <Container>
-                <form onSubmit={this.handleSubmit}>
-         
-                       <h3>This is user profile</h3>
-         
+                <form onSubmit={this.handleSubmit}>      
+                <div className ="row">
+            <div className= "col-md-12">
+              <div className="card">
+                  <div className="card bg-dark text-white">
+                      <div className = "card-header">
+                          All Posts
+                      </div>
+                      <div className="card-body text">
+                      {this.props.Posts.map(post => <div key={post.id} className="media">
+
+            <p>{post.body}</p>
+           
+                         </div>)}      
+                        </div>
+                  </div>
+                  </div>   
+                </div>
+              </div>          
                </form>
                </Container>
           </div>

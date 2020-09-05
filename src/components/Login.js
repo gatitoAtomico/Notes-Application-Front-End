@@ -27,14 +27,14 @@ class Login extends Component {
         axios.post('login', data).then (
 
         res => {
-
             localStorage.setItem('token',res.data.token);
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
             this.setState({
                 loggedIn: true
-
             });
 
-            this.props.setUser(res.data.user);
+            this.props.setUser(res.data.user, res.data.posts);
+            //this.props.SetPosts(res.data.posts)
         
              }).catch(
                 err => {

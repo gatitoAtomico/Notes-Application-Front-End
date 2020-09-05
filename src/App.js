@@ -12,7 +12,6 @@ import Forgot from './components/Forgot';
 import Profile from './components/Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css'
-import Sidebar from './components/SideBar';
 
  export default class App extends Component {
 
@@ -22,8 +21,8 @@ import Sidebar from './components/SideBar';
     super(props);
     this.state = {
         User : null,
-        Categories : [] ,
-        Posts: []
+        Posts: null,
+        Dummy: null
     }
 
 }
@@ -31,22 +30,30 @@ import Sidebar from './components/SideBar';
  //runs before render method runs 
  componentDidMount = () =>{
 
-  axios.get('user').then(
+  axios.get('userDetails').then(
     res => {
-      this.setUser(res.data);
+      this.setUser(res.data.user,res.data.posts);
+      console.log(res);
     },
     err => {
       console.log(err);
     }
   )
 };
-
- setUser = (user) => {
-
+ 
+ setUser = (user, posts) => {
   this.setState({
-    User: user
+    User: user, 
+    Posts: posts
   });
  };
+
+updatePosts = (post) => {
+  this.setState({
+    Dummy: post, 
+  });
+};
+
 
   render() {
   return (
@@ -54,15 +61,15 @@ import Sidebar from './components/SideBar';
     <div>
       <BrowserRouter>
             <div className="App">
-            <Navigation User = {this.state.User}  setUser={this.setUser}/>
+            <Navigation User = {this.state.User} setUser={this.setUser} />
         <div className="auth-wrapper">
             <div className="auth-inner">
               <Switch>
-               <Route  path="/login" component = { () => <Login setUser = {this.setUser} />} />
-               <Route  path="/register" component = {Register} />
-               <Route  path="/forgot" component = {Forgot} />
-               <Route  path="/profile" component = { () => <Profile User = {this.state.User} />} />
-               <Route exact path="/" component= { () => <Home User = {this.state.User} />} />
+               <Route exact path="/login" component = { () => <Login setUser = {this.setUser} />} />
+               <Route exact  path="/register" component = {Register} />
+               <Route exact path="/forgot" component = {Forgot} />
+               <Route exact path="/profile" component = { () => <Profile Posts = {this.state.Posts} User={this.state.User}  />} />
+               <Route exact path="/" component= { () => <Home setPosts = {this.updatePosts} User = {this.state.User} />} />
              </Switch>
 
                 </div>
