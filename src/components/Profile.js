@@ -7,27 +7,33 @@ class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-        
+          'posts' : []
         };    
-
-
-
-        //console.log(this.props.Posts);
-        console.log(this.props);
-
       }
 
-     //runs before render method runs 
+      //runs before render method runs 
+ componentDidMount = () =>{
+
+  axios.get('userMessages').then(
+    res => {
+      this.setState({
+        posts: res.data.posts
+      });
+    }
+      ,
+    err => {
+      console.log(err);
+    }
+  )
+
+
+
+};
 
     render() {
 
-
         if(this.props.User){
-
-      
-
             let error = '';
-    
             if(this.state.message){
     
                 error = (
@@ -49,12 +55,18 @@ class Profile extends Component {
                       <div className = "card-header">
                           All Posts
                       </div>
-                      <div className="card-body text">
-                      {this.props.Posts.map(post => <div key={post.id} className="media">
-
-            <p>{post.body}</p>
+                      <div className="scrollable">
+                        <div className="card-body text">
+                        {this.state.posts.map(post => <div key={post.id} className="media">
            
-                         </div>)}      
+                <div className="media-body">
+                  
+                       <p>{post.body}</p>
+                    
+                </div>
+                </div>)}
+         
+                          </div>
                         </div>
                   </div>
                   </div>   

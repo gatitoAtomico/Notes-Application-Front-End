@@ -31,18 +31,11 @@ class Home extends Component {
 
           //console.log(this.props.setPosts('frixos'));
 
-
-             //this must be edited
-           // this.props.updatePosts('frixos');
-
           this.setState({
 
             posts: [...this.state.posts, res.data.post]
 
           });
-
-
-          console.log('after props');
 
              }).catch(
                 err => {
@@ -52,6 +45,10 @@ class Home extends Component {
 
             //clear post body
             e.target.reset();
+
+            console.log('home posts ' ,this.state.posts)
+
+
     }
 
     render() {

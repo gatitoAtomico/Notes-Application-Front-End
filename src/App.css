@@ -6,17 +6,17 @@ max-height: 500px;
 padding: 100px;
 margin: auto;
 height: 100%;
-border-left: 10px solid #f8f4e9;
-border-right: 10px solid #534e48;
-background-image: -webkit-linear-gradient(left, #f8f4e9 50%, #534e48 50%), -webkit-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
-background-image: -moz-linear-gradient(left, #f8f4e9 50%, #534e48 50%), -moz-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
-background-image: -o-linear-gradient(left, #f8f4e9 50%, #534e48 50%), -o-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
-background-image: linear-gradient(to right, #f8f4e9 50%, #534e48 50%), linear-gradient(to right, #f8f4e9 50%, #534e48 50%);
+border-left: 10px solid #4488f3;
+border-right: 10px solid #745bd0;
+background-image: -webkit-linear-gradient(left, #f8f4e9 50%, #745bd0 50%), -webkit-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
+background-image: -moz-linear-gradient(left, #f8f4e9 50%, #745bd0 50%), -moz-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
+background-image: -o-linear-gradient(left, #f8f4e9 50%, #745bd0 50%), -o-linear-gradient(left, #f8f4e9 50%, #534e48 50%);
+background-image: linear-gradient(to right, #f8f4e9 50%, #745bd0 50%), linear-gradient(to right, #f8f4e9 50%, #534e48 50%);
 background-position: 0 0, 0 100% ;
 background-repeat: no-repeat;
 background-size: 100% 10px;
     /* The image used */
-    background-image: url(/images/cat.jpg);
+    background-image: url(/images/login.jpg);
 
     /* Full height */
     height: 100%; 
@@ -42,6 +42,11 @@ h2,label {
     padding: 4px;
 }
 
+
+.scrollable{
+    overflow-y: auto;
+    max-height: 300px;
+  }
 
 
 

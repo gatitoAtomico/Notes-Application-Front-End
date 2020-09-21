@@ -48,13 +48,6 @@ import 'semantic-ui-css/semantic.min.css'
   });
  };
 
-updatePosts = (post) => {
-  this.setState({
-    Dummy: post, 
-  });
-};
-
-
   render() {
   return (
 
@@ -68,8 +61,8 @@ updatePosts = (post) => {
                <Route exact path="/login" component = { () => <Login setUser = {this.setUser} />} />
                <Route exact  path="/register" component = {Register} />
                <Route exact path="/forgot" component = {Forgot} />
-               <Route exact path="/profile" component = { () => <Profile Posts = {this.state.Posts} User={this.state.User}  />} />
-               <Route exact path="/" component= { () => <Home setPosts = {this.updatePosts} User = {this.state.User} />} />
+               <Route exact path="/profile" component = { () => <Profile User={this.state.User}  />} />
+               <Route exact path="/" component= { () => <Home setUser = {this.setUser} User = {this.state.User} />} />
              </Switch>
 
                 </div>
